@@ -3,7 +3,7 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.mulesoft.training</groupId>
-	<artifactId>maven-project</artifactId>
+	<artifactId>maven-project-marioadvmay</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
 	<packaging>mule</packaging>
 	<name>Mule maven-project Application</name>
@@ -21,6 +21,7 @@
 
 	<build>
 		<plugins>
+
 			<plugin>
 				<groupId>org.mule.tools.maven</groupId>
 				<artifactId>mule-app-maven-plugin</artifactId>
@@ -30,6 +31,7 @@
 					<copyToAppsDirectory>true</copyToAppsDirectory>
 				</configuration>
 			</plugin>
+
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -57,6 +59,31 @@
 					</execution>
 				</executions>
 			</plugin>
+
+			<plugin>
+				<groupId>org.mule.tools.maven</groupId>
+				<artifactId>mule-maven-plugin</artifactId>
+				<version>2.0</version>
+				<configuration>
+					<deploymentType>cloudhub</deploymentType>
+					<muleVersion>${mule.version}</muleVersion>
+					<username>MarioAdvMay1234</username>
+					<password>MarioAdvMay1234</password>
+					<workerType>Micro</workerType>
+					<redeploy>true</redeploy>
+					<environment>Production</environment>
+				</configuration>
+				<executions>
+					<execution>
+						<id>deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+
 		</plugins>
 	</build>
 
@@ -165,13 +192,13 @@
 			<version>${activemq.version}</version>
 		</dependency>
 
-	<dependency>
-            <groupId>org.mule.modules</groupId>
-            <artifactId>mule-module-json</artifactId>
-            <version>${mule.version}</version>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+		<dependency>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-module-json</artifactId>
+			<version>${mule.version}</version>
+			<scope>provided</scope>
+		</dependency>
+	</dependencies>
 
 	<repositories>
 		<repository>
